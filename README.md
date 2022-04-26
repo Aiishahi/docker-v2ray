@@ -67,8 +67,9 @@ sudo nano config.json
 
 # v2ray (Client)
 
-At the time of writing, client version release is v4.31.0.
-https://github.com/v2fly/v2ray-core/releases/tag/v4.31.0
+Graphic Client
+
+https://www.v2ray.com/en/awesome/tools.html
 
 Edit your config.json file
 
