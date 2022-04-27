@@ -116,8 +116,8 @@ sudo nano /usr/local/etc/v2ray/config.json
 ```
 
 ```
-brew service run v2ray
-brew service start v2ray
+brew services run v2ray
+brew services start v2ray
 ```
 
 # Recommends using Firefox
