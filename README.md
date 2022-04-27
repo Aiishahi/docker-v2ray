@@ -70,12 +70,14 @@ sudo nano config.json
 
 # v2ray (Client)
 
-https://github.com/v2ray/homebrew-v2ray
+```
+brew install v2ray
+```
 
 Edit your config.json file
 
 ```
-sudo nano /usr/local/etc/v2ray-core/config.json
+sudo nano /usr/local/etc/v2ray/config.json
 ```
 
 ```
@@ -111,6 +113,11 @@ sudo nano /usr/local/etc/v2ray-core/config.json
     }]
   }
 }
+```
+
+```
+brew service run v2ray
+brew service start v2ray
 ```
 
 # Recommends using Firefox
