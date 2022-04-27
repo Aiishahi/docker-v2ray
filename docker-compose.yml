@@ -10,3 +10,6 @@ services:
       - ./v2ray:/etc/v2ray
     ports:
       - 9000:9000 # Specify Port Number
+      
+networks:
+  v2ray:
