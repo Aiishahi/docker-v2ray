@@ -75,7 +75,7 @@ https://github.com/v2ray/homebrew-v2ray
 Edit your config.json file
 
 ```
-sudo nano /usr/local/etc/v2ray/config.json
+sudo nano /usr/local/etc/v2ray-core/config.json
 ```
 
 ```
