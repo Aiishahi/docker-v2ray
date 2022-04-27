@@ -35,6 +35,9 @@ services:
       - ./v2ray:/etc/v2ray
     ports:
       - 9000:9000 # Specify Port Number
+      
+networks:
+  v2ray:      
 ```
 
 As you can see - ./v2ray:/etc/v2ray specify config files at v2ray folder. Create a directory with:
