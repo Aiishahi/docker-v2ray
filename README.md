@@ -70,11 +70,13 @@ sudo nano config.json
 
 # v2ray (Client)
 
-Graphic Client
-
-https://www.v2ray.com/en/awesome/tools.html
+https://github.com/v2ray/homebrew-v2ray
 
 Edit your config.json file
+
+```
+sudo nano /usr/local/etc/v2ray/config.json
+```
 
 ```
 {
