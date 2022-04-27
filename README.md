@@ -124,3 +124,4 @@ brew services start v2ray
 
 Settings -> Network Settings -> Settings
 
+![alt text](https://github.com/antyung88/docker-v2ray/blob/main/socks5.png)
