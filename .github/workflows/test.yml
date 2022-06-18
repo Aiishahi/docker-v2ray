@@ -19,8 +19,8 @@ jobs:
           password: ${{ secrets.GH_TOKEN }}
       - run: |
           docker build . -t ghcr.io/${{ secrets.USER }}/${{ secrets.IMAGE }}:test
-          mkdir /v2ray 
-          cat << EOF > /v2ray/config.json
+          sudo mkdir /v2ray 
+          sudo bash -c 'cat << EOF > /v2ray/config.json
           {
             "inbounds": [{
               "port": 9000, // Port of the server. Must be the same as above.
@@ -34,8 +34,8 @@ jobs:
               "settings": {}
             }]
           }
->         EOF
+          EOF'
           docker-compose -f .github/docker-compose-test.yml up -d
           sleep 5
-          docker logs v2ray-test 2>&1 | grep "Ready"
+          docker logs v2ray-test 2>&1 | grep "started"
           docker logs v2ray-test
