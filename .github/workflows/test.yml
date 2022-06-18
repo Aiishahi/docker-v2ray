@@ -1,0 +1,41 @@
+name: Test Github Packages
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build-test:
+    name: Build Test Image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Out Repo 
+        uses: actions/checkout@v3
+      - uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ secrets.USER }}
+          password: ${{ secrets.GH_TOKEN }}
+      - run: |
+          docker build . -t ghcr.io/${{ secrets.USER }}/${{ secrets.IMAGE }}:test
+          mkdir /v2ray 
+          cat << EOF > /v2ray/config.json
+          {
+            "inbounds": [{
+              "port": 9000, // Port of the server. Must be the same as above.
+              "protocol": "vmess",
+              "settings": {
+                "clients": [{ "id": "b831381d-6324-4d53-ad4f-8cda48b30811" }] // Your Unique Client id to match
+              }
+            }],
+            "outbounds": [{
+              "protocol": "freedom",
+              "settings": {}
+            }]
+          }
+>         EOF
+          docker-compose -f .github/docker-compose-test.yml up -d
+          sleep 5
+          docker logs v2ray-test 2>&1 | grep "Ready"
+          docker logs v2ray-test
