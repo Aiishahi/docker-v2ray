@@ -37,5 +37,5 @@ jobs:
           EOF'
           docker-compose -f .github/docker-compose-test.yml up -d
           sleep 5
-          docker logs v2ray-test 2>&1 | grep "Ready"
+          docker logs v2ray-test 2>&1 | grep "started"
           docker logs v2ray-test
