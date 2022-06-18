@@ -20,7 +20,7 @@ jobs:
       - run: |
           docker build . -t ghcr.io/${{ secrets.USER }}/${{ secrets.IMAGE }}:test
           sudo mkdir /v2ray 
-          sudo cat << EOF > /v2ray/config.json
+          sudo bash -c 'cat << EOF > /v2ray/config.json
           {
             "inbounds": [{
               "port": 9000, // Port of the server. Must be the same as above.
