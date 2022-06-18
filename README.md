@@ -6,8 +6,6 @@ Project V is a set of tools to help you build your own privacy network over inte
 # Prerequisites
 - Ubuntu 20.04+ (Recommended)
 
-# Installation
-
 First, update repository index and install docker.io and docker-compose
 
 ```
@@ -17,42 +15,16 @@ sudo usermod -aG docker ubuntu
 sudo su - $USER
 ```
 
-# Install via Docker-Compose (Server)
+# V2ray Server Installation
 
+Git clone repository
 ```
-sudo nano docker-compose.yml
-```
-```
-version: "3.3"
-services:
-  v2ray:
-    image: ghcr.io/antyung88/v2ray:main
-    container_name: v2ray
-    restart: always
-    networks:
-      - v2ray
-    volumes:
-      - ./v2ray:/etc/v2ray
-    ports:
-      - 9000:9000 # Specify Port Number
-      
-networks:
-  v2ray:      
+git clone https://github.com/antyung88/docker-v2ray.git && cd docker-v2ray
 ```
 
-As you can see - ./v2ray:/etc/v2ray specify config files at v2ray folder. Create a directory with:
-
+Create V2ray Config File
 ```
-sudo mkdir v2ray && cd v2ray
-```
-
-Create our config.json file:
-
-```
-sudo nano config.json
-```
-
-```
+cat << EOF > ./v2ray/config.json
 {
   "inbounds": [{
     "port": 9000, // Port of the server. Must be the same as above.
@@ -66,10 +38,17 @@ sudo nano config.json
     "settings": {}
   }]
 }
+EOF
 ```
 
-# v2ray (Client)
+Deploy service:
+```
+docker-compose up -d
+```
 
+# V2ray Client Installation
+
+macOS (Example)
 ```
 brew install v2ray
 ```

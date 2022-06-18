@@ -1,13 +1,13 @@
 version: "3.3"
 services:
   v2ray:
-    image: ghcr.io/antyung88/v2ray:main
+    image: ghcr.io/antyung88/v2ray:latest
     container_name: v2ray
     restart: always
     networks:
       - v2ray
     volumes:
-      - ./v2ray:/etc/v2ray
+      - ./v2ray/config.json:/etc/v2ray/config.json
     ports:
       - 9000:9000 # Specify Port Number
       
