@@ -24,6 +24,7 @@ git clone https://github.com/antyung88/docker-v2ray.git && cd docker-v2ray
 
 Create V2ray Config File
 ```
+mkdir ./v2ray && \
 cat << EOF > ./v2ray/config.json
 {
   "inbounds": [{
