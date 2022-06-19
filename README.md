@@ -1,4 +1,4 @@
-# docker-v2ray
+# docker-v2ray [![Release Github Packages](https://github.com/antyung88/docker-v2ray/actions/workflows/release.yml/badge.svg)](https://github.com/antyung88/docker-v2ray/actions/workflows/release.yml)
 V2Ray in Docker 
 
 Project V is a set of tools to help you build your own privacy network over internet. The core of Project V, named V2Ray, is responsible for network protocols and communications. It can work alone, as well as combine with other tools.
